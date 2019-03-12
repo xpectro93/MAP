@@ -1,0 +1,35 @@
+
+#acomment {
+  margin:10px;
+  padding:5px;
+  border:white solid 2px;
+  color:orange
+}
+.ratings {
+  /* border:2px solid green; */
+  color:orange;
+  display:flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 5px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+#radial {
+  display:flex;
+  flex-direction:row;
+  margin:auto;
+}
+span {
+  padding:5px
+}
+.post-comment {
+  margin:auto;
+  display:flex;
+  flex-direction: column;
+}
+#commentInput {
+  width:500px;
+  font-size: 15px;
+  text-align: center;
+}

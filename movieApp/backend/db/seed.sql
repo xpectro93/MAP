@@ -36,7 +36,7 @@ INSERT INTO genres(name) VALUES
 ('horror'),('comedy'),('animation'),('romance'),('action'),('superhero'),('fiction');
 
 INSERT INTO movies(title, genre_id,img_url) VALUES
-('IT',1,'https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiJ3s6AsfrgAhXnYt8KHSenDDAQjRx6BAgBEAU&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F391602130091858083%2F&psig=AOvVaw1mkzDWtfScINzhEnVlZDrO&ust=1552403802070866'),
+('IT',1,'https://alternativemovieposters.com/wp-content/uploads/2017/04/glitchway_it.jpg'),
 ('White Chicks',2,'http://www.gstatic.com/tv/thumb/v22vodart/34622/p34622_v_v8_ab.jpg'),
 ('Toy Story',3,'https://cdn.europosters.eu/image/750/posters/toy-story-woody-buzz-i24759.jpg'),
 ('Taken',5,'https://thatwasabitmental.files.wordpress.com/2013/04/taken-poster.jpg'),

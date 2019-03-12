@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/movies', moviesRouter);
 app.use('/genres', genresRouter);
-app.use('/ratings', genresRouter);
+app.use('/ratings', ratingsRouter);
 app.use('/comments', commentsRouter);
 
 

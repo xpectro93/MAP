@@ -96,8 +96,8 @@ const getSpecificById = ( req, res, next ) => {
 }
 
 const getSpecificByName = ( req, res, next ) => {
-  let movie = req.params.id
-  db.one('SELECT movies.id,movies.title,genres.name,img_url, avg(ratings.stars) AS AR FROM ratings JOIN movies ON ratings.movie_id = movies.id JOIN genres ON genres.id = movies.genre_id WHERE movies.title =$1 GROUP BY movies.id, movies.title,genres.name,img_url ORDER BY AR desc',movie)
+  let movie = '%'+req.params.id+'%'
+  db.any("SELECT movies.id,movies.title,genres.name,img_url, avg(ratings.stars) AS AR FROM ratings JOIN movies ON ratings.movie_id = movies.id JOIN genres ON genres.id = movies.genre_id WHERE LOWER(movies.title) LIKE $1 GROUP BY movies.id, movies.title,genres.name,img_url ORDER BY AR desc",movie)
     .then(data => {
       res.status(200)
         .json({

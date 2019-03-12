@@ -2,7 +2,7 @@ const db = require('./index.js');
 
 
 const createComment = (req, res, next ) => {
-  db.none('INSERT INTO ratings(text,movie_id) VALUES(${text}, ${movie_id})', req.body)
+  db.none('INSERT INTO comments(text,movie_id) VALUES(${text}, ${movie_id})', req.body)
     .then(()=> {
       res.status(200)
         .json({
@@ -40,6 +40,26 @@ const getAllCommentsPerMovieId = (req, res, next ) => {
       next(err)
   })
  }
+ const getComments = (req, res, next ) => {
+   let movie = req.params.id
+   db.any('SELECT * FROM comments WHERE movie_id = $1',movie)
+   .then(data => {
+     res.status(200)
+       .json({
+         status:"Success",
+         message:"Got comments for movie_id: "+ movie,
+         data:data
+       })
+   })
+   .catch(err => {
+     res.status(404)
+       .json({
+         status:404,
+         message:"Could not retrieve comments from movie_id: " +movie
+       })
+       next(err)
+   })
+  }
 
 
  const getAllCommentsPerMovieTitle = (req, res, next ) => {
@@ -68,5 +88,6 @@ const getAllCommentsPerMovieId = (req, res, next ) => {
 module.exports = {
   createComment,
   getAllCommentsPerMovieId,
-  getAllCommentsPerMovieTitle
+  getAllCommentsPerMovieTitle,
+  getComments
 }
