@@ -9,7 +9,7 @@ export const ShowComments = props => {
   })
   return (
     <div className = 'comments'>
-    {commentsDisplay}
+    {commentsDisplay.reverse()}
     </div>
   )
 }

@@ -35,14 +35,15 @@ const getMovieByTitle = (req,res, next ) => {
           message:"Got Movie with title: "+ movieId,
           data:data
         })
-        .catch(err => {
-          res.status(404)
-            .json({
-              status:404,
-              message:"Could not retrieve movie with the id of "+ movieId
-            })
-            next(err)
+
+    })
+    .catch(err => {
+      res.status(404)
+        .json({
+          status:404,
+          message:"Could not retrieve movie with the id of "+ movieId
         })
+        next(err)
     })
 }
 
@@ -84,14 +85,14 @@ const getSpecificById = ( req, res, next ) => {
           data:data
 
         })
-        .catch(err => {
-          res.status(404)
-            .json({
-              status:404,
-              message:"Could not retrieve specific movies info"
-            })
-            next(err)
+    })
+    .catch(err => {
+      res.status(404)
+        .json({
+          status:404,
+          message:"Could not retrieve specific movies info"
         })
+        next(err)
     })
 }
 
@@ -106,14 +107,15 @@ const getSpecificByName = ( req, res, next ) => {
           data:data
 
         })
-        .catch(err => {
-          res.status(404)
-            .json({
-              status:404,
-              message:"Could not retrieve specific movies info"
-            })
-            next(err)
+
+    })
+    .catch(err => {
+      res.status(404)
+        .json({
+          status:404,
+          message:"Could not retrieve specific movies info"
         })
+        next(err)
     })
 }
 

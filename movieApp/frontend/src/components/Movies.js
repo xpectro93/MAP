@@ -20,15 +20,21 @@ export default class Movies extends Component  {
     })
   }
   onSubmit = e => {
-    e.preventDefault();
-    axios
-      .get(`/movies/everythingname/${this.state.searchInput.toLowerCase()}`)
-        .then(res => {
-          this.setState({
-            movies:res.data.data,
-            searchInput:''
+    e.preventDefault()
+    if(this.state.searchInput===""){
+      this.getAllMovies()
+    }else {
+      axios
+        .get(`/movies/everythingname/${this.state.searchInput.toLowerCase()}`)
+          .then(res => {
+            this.setState({
+              movies:res.data.data,
+              searchInput:''
+            })
           })
-        })
+    }
+
+
 
 
   }

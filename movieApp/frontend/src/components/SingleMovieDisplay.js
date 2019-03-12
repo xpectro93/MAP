@@ -12,7 +12,8 @@ export default class SingleMovieDisplay extends Component {
     movie:[],
     comments:[],
     commentInput:"",
-    rating:null
+    rating:null,
+    error:''
   }
 
 componentDidMount(){
@@ -42,27 +43,38 @@ loadComments(){
       })
 }
 onChange = e => {
+
   this.setState({
     [e.target.id]:e.target.value
   })
 }
 submitComment = e =>{
-  e.preventDefault();
-  let comment = {
-    movie_id:+this.props.match.params.id,
-    text: this.state.commentInput
+      e.preventDefault();
+  if(this.state.commentInput<1){
+    this.setState({
+      error:"Write something before submitting"
+    })
+  }else{
+
+    let comment = {
+      movie_id:+this.props.match.params.id,
+      text: this.state.commentInput
+    }
+    this.setState({
+      commentInput:"",
+      error:''
+    })
+    axios
+      .post('/comments/',comment)
+        .then(res => {
+          console.log(res);
+        })
+        .then(()=> {
+          this.loadComments()
+        })
+
   }
-  this.setState({
-    commentInput:""
-  })
-  axios
-    .post('/comments/',comment)
-      .then(res => {
-        console.log(res);
-      })
-      .then(()=> {
-        this.loadComments()
-      })
+
 
 
 }
@@ -104,7 +116,7 @@ render(){
     </div>
     <button id="searchInput" type="submit">Submit Rating</button>
     </form>
-
+    <h3>{this.state.error}</h3>
     <PostComment
         submitComment={this.submitComment}
         onChange = {this.onChange}

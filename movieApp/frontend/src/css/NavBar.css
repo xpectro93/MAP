@@ -8,8 +8,11 @@
   justify-content: space-between;
   margin-top:auto;
 }
-a {
-  margin:10px
+#navbar2 > a {
+  padding:10px
+}
+#navbar1 > a {
+  padding:10px
 }
 a:visited {
   color:white

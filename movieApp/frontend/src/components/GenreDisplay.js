@@ -72,7 +72,7 @@ export default class GenreDisplay extends Component {
      <option key={`all`}value='all'></option>
      {populate}
      </select>
-     <button type="submit">Search By Genre</button>
+     <button id="searchInput" type="submit">Search By Genre</button>
      </form>
 
      <MoviesDisplay movies={this.state.movies}  searchInput ={this.state.searchInput}/>
